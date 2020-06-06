@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.marmol.cardenas.jesus.calidaddelaire.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/go_to_agregar"
+            app:destination="@id/navigation_edit"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_edit"
+        android:name="com.marmol.cardenas.jesus.calidaddelaire.ui.editar.EditFragment"
+        android:label="@string/title_edit"
+        tools:layout="@layout/fragment_edit" />
+
+    <fragment
+        android:id="@+id/navigation_info"
+        android:name="com.marmol.cardenas.jesus.calidaddelaire.ui.info.InfoFragment"
+        android:label="@string/title_info"
+        tools:layout="@layout/fragment_notifications" />
+
+</navigation>
