@@ -15,14 +15,14 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.marmol.cardenas.jesus.calidaddelaire.R
-import com.marmol.cardenas.jesus.calidaddelaire.model.DatosAirQualityModel
+import com.marmol.cardenas.jesus.calidaddelaire.model.DatosCalidadAire
 import kotlinx.android.synthetic.main.row.view.*
 import java.util.ArrayList
 import java.util.HashMap
 
 class AdapterDatosCalidadAire(
-    val data : MutableList<DatosAirQualityModel>,
-    val listener : (DatosAirQualityModel) -> Unit
+    val data : MutableList<DatosCalidadAire>,
+    val listener : (DatosCalidadAire) -> Unit
 ) : RecyclerView.Adapter<AdapterDatosCalidadAire.ViewHolder>(){
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

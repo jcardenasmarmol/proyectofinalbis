@@ -1,7 +1,7 @@
 package com.marmol.cardenas.jesus.calidaddelaire.webservices
 
 import com.google.gson.GsonBuilder
-import com.marmol.cardenas.jesus.calidaddelaire.model.DatosAirQualityModel
+import com.marmol.cardenas.jesus.calidaddelaire.model.DatosCalidadAire
 import com.marmol.cardenas.jesus.calidaddelaire.model.DatosCiudadesWAQI
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -16,7 +16,7 @@ class API {
 
             val builder = GsonBuilder()
             builder.registerTypeAdapter(
-                DatosAirQualityModel::class.java,
+                DatosCalidadAire::class.java,
                 DeserializerDatos()
             )
 

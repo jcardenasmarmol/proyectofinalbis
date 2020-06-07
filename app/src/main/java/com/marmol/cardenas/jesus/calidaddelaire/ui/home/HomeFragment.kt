@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.marmol.cardenas.jesus.calidaddelaire.ui.adapter.AdapterDatosCalidadAire
 import com.marmol.cardenas.jesus.calidaddelaire.R
-import com.marmol.cardenas.jesus.calidaddelaire.model.DatosAirQualityModel
+import com.marmol.cardenas.jesus.calidaddelaire.model.DatosCalidadAire
 
 class HomeFragment : Fragment() {
 
@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
         return root
     }
 
-    private fun eliminar(it: DatosAirQualityModel) {
+    private fun eliminar(it: DatosCalidadAire) {
         estaciones.remove("@${it.id}")
         actualizarPreferencias()
         adapter.data.remove(it)
@@ -85,7 +85,7 @@ class HomeFragment : Fragment() {
         edit?.apply()
     }
 
-    private fun actualizar(it : DatosAirQualityModel){
+    private fun actualizar(it : DatosCalidadAire){
         adapter.data.add(it)
         adapter.notifyDataSetChanged()
     }

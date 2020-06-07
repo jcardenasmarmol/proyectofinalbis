@@ -1,10 +1,8 @@
-package com.marmol.cardenas.jesus.calidaddelaire
+package com.marmol.cardenas.jesus.calidaddelaire.webservices
 
 import androidx.lifecycle.MutableLiveData
-import com.marmol.cardenas.jesus.calidaddelaire.model.DatosAirQualityModel
+import com.marmol.cardenas.jesus.calidaddelaire.model.DatosCalidadAire
 import com.marmol.cardenas.jesus.calidaddelaire.model.DatosCiudadesWAQI
-import com.marmol.cardenas.jesus.calidaddelaire.webservices.API
-import com.marmol.cardenas.jesus.calidaddelaire.webservices.WAQIService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,18 +12,18 @@ class Repositorio {
     companion object{
         private val apiWAQI = API.generateRetrofitWAQIInstance().create<WAQIService>()
         private val apiWAQICiudad = API.generateRetrofitWAQICiudadInstance().create<WAQIService>()
-        fun getData(estacion: String): MutableLiveData<DatosAirQualityModel> {
-            var datos = MutableLiveData<DatosAirQualityModel>()
+        fun getData(estacion: String): MutableLiveData<DatosCalidadAire> {
+            var datos = MutableLiveData<DatosCalidadAire>()
 
             apiWAQI.requestLastDataFromStation(estacion)
-                .enqueue(object : Callback<DatosAirQualityModel> {
-                    override fun onFailure(call: Call<DatosAirQualityModel>, t: Throwable) {
+                .enqueue(object : Callback<DatosCalidadAire> {
+                    override fun onFailure(call: Call<DatosCalidadAire>, t: Throwable) {
 
                     }
 
                     override fun onResponse(
-                        call: Call<DatosAirQualityModel>,
-                        response: Response<DatosAirQualityModel>
+                        call: Call<DatosCalidadAire>,
+                        response: Response<DatosCalidadAire>
                     ) {
                         datos.value = response.body()
                     }

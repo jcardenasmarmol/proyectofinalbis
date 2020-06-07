@@ -4,16 +4,16 @@ import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
-import com.marmol.cardenas.jesus.calidaddelaire.model.DatosAirQualityModel
+import com.marmol.cardenas.jesus.calidaddelaire.model.DatosCalidadAire
 import java.lang.reflect.Type
 
-class DeserializerDatos : JsonDeserializer<DatosAirQualityModel> {
+class DeserializerDatos : JsonDeserializer<DatosCalidadAire> {
 
     override fun deserialize(
         json: JsonElement?,
         typeOfT: Type?,
         context: JsonDeserializationContext?
-    ): DatosAirQualityModel {
+    ): DatosCalidadAire {
         val id = json?.asJsonObject?.get("data")?.asJsonObject?.get("idx")?.asInt
         val city = json?.asJsonObject?.get("data")?.asJsonObject?.get("city")?.asJsonObject?.get("name")?.asString
         val date = json?.asJsonObject?.get("data")?.asJsonObject?.get("time")?.asJsonObject?.get("s")?.asString
@@ -23,7 +23,7 @@ class DeserializerDatos : JsonDeserializer<DatosAirQualityModel> {
         keySet.map {
             hashMap[it.toLowerCase()] = json.asJsonObject?.get("data")?.asJsonObject?.get("iaqi")?.asJsonObject?.get(it)?.asJsonObject?.get("v")?.asDouble ?: 0.0
         }
-        return DatosAirQualityModel(
+        return DatosCalidadAire(
             id.toString(), city ?: "", date ?: "", hashMap
         )
     }

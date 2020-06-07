@@ -1,6 +1,6 @@
 package com.marmol.cardenas.jesus.calidaddelaire.model
 
-class DatosAirQualityModel(
+class DatosCalidadAire(
     val id: String,
     val ciudad: String,
     val fecha: String,
@@ -8,7 +8,7 @@ class DatosAirQualityModel(
 ) {
     override fun equals(other: Any?): Boolean {
         var iguales = false
-        if (other is DatosAirQualityModel) {
+        if (other is DatosCalidadAire) {
             if (other.id == this.id)
                 iguales = true
         }
